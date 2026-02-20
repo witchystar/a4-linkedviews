@@ -1,0 +1,26 @@
+body {
+  font-family: Times New Roman;
+  margin: 40px;
+}
+
+svg {
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar.highlight {
+  fill: orange;
+}
+
+.dot {
+  fill: steelblue;
+  opacity: 0.6;
+}
+
+.dot.selected {
+  fill: orange;
+}
