@@ -17,7 +17,7 @@ d3.csv("chocolate_sales.csv").then(data => {
 
   // Convert numeric fields
   data.forEach(d => {
-    d.Amount = +d.Amount;
+    d.amount = +d.amount;
     d["Boxes Shipped"] = +d["Boxes Shipped"];
   });
 
@@ -94,7 +94,7 @@ function createScatter(data){
     dots.classed("selected", d => {
 
       const cx = x(d["Boxes Shipped"]);
-      const cy = y(d.Amount);
+      const cy = y(d.amount);
 
       const isSelected =
         x0 <= cx && cx <= x1 &&
@@ -128,8 +128,8 @@ function createBar(data){
     // Aggregate sales by country
     const grouped = d3.rollups(
       filteredData,
-      v => d3.sum(v, d => d.Amount),
-      d => d.Country
+      v => d3.sum(v, d => d.amount),
+      d => d.country
     );
 
     // Scales
