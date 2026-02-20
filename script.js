@@ -105,15 +105,13 @@ function createScatter(data){
       return isSelected;
     });
 
-    // LINKED UPDATE
+    // Linked update
     updateBar(selected);
   }
 }
 
 
-// ===============================
-// BAR CHART (LINKED VIEW)
-// ===============================
+// Bar Chart (linked view)
 function createBar(data){
 
   const svg = d3.select("#bar")
@@ -169,10 +167,3 @@ function createBar(data){
   // Initial render
   updateBar(data);
 }
-
-
-
-
-
-
-
