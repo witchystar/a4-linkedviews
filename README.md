@@ -1,56 +1,25 @@
-OPTIONAL OPTIONAL OPTIONAL OPTIONAL OPTIONAL Assignment 4 - Brushing and Linking
+(OPTIONAL) Assignment 4 - Brushing and Linking
 ===
 
-The primary aim of this assignment is to showcase your **individual** skills at supporting interactive experiences with visualizations.
+## My data set that I chose was this Kaggle dataset:
+  - https://www.kaggle.com/datasets/saidaminsaidaxmadov/chocolate-sales?select=Chocolate+Sales+%282%29.csv
+    - The csv file was not changed at all, but in my script, I did do some cleaning and convert the numeric fields.
+ 
+## This is the link to my visualization: 
+  - https://witchystar.github.io/a4-linkedviews/
 
-### Your Task
+===
+## My visualization provides a dual-view exploration of the Chocolate Sales csv. It contains 2 parts:
+  1) Scatterplot: This chart maps "Boxes Shipped" against "Amount" to reveal the relationship between volume and revenue for individual sales entries. It incorporates an interactive brush, a click and drag tool, that allows you to select a specific subset of data points directly on the plot. When a region is "brushed," the selected points turn orange to provide immediate visual confirmation of your selection.
+  2) Linked Bar Chart: This chart aggregates the total sales "Amount" by "Country". It is dynamically linked to the scatterplot; as you adjust your brush selection, the bar chart instantly updates to reflect the totals for only the specific transactions you have highlighted.
+===
 
-Your task is to craft a visualization with a dataset of your choosing, and to specifically support brushing and linking of some kind to support exploration through two or more views of the data.
+## My Technical Achievements:
+  - Interactive Linking & Brushing: I implemented a d3.brush() overlay that captures user input coordinates and filters the global dataset in real-time.
+  - Robust Data Sanitization: I overcame a frustrating coding hurdle by using regular expressions (/[$,]/g) to strip currency symbols and commas from the CSV strings, converting them into valid floating-point numbers for calculation.
+  - Dynamic DOM Manipulation: The updateBar function uses the "Enter-Update-Exit" pattern (via .remove() and fresh appends) to re-render the bar chart scales and axes dynamically based on filtered subsets of data.
 
-By linked views, we mean:
-
-- Have at least two separate visualizations (likely separate SVGs), that visualize data, possibly with different techniques.
-- Linked views means that interacting in one updates the other, and vice versa. Think about the interaction flow that leads to good user experience and aligns with tasks you've identified.
-
-Examples of linked views include:
-- A large central map or scatterplot, with ancillary histograms that can be used to filter-- perhaps time or other dimensions
-
-
-Incorporating a brief writeup with your visualization is a good idea.
-Communicate what the original vision was, what the major issues were, and what new things can be seen with your multiple linked views.
-
-### More on Linking Views
-One of the most powerful techniques for mitigating the shortcomings of a given visualization is to link it with other views.
-
-Linking a map to a bar or scatterplot, for instance, may allow you to overcome the shortcomings of a map.
-
-In general, linking visualizations allows you to explore different parts of the data between views, and mitigates the shortcomings of a given view by pairing it with other views.
-
-For this assignment, we want to see at least two linked views, in that interactions in one view updates the other, and vice versa. Many multiple views visualizations use more than two views, so consider such directions as possibilities for tech/design achievements. Be sure to think about what views work best for given tasks, and try to iterate/prototype if possible.
-
-Requirements
----
-
-0. Your code should be forked from the GitHub repo and linked using GitHub pages.
-1. Your project should load a dataset you found on the web from the vis you're remixing. You may extract the data by sight if necessary. Put this file in your repo.
-2. Your project should use d3 to build a visualization of the dataset. 
-3. Your writeup (readme.md in the repo) should contain the following:
-
-- Working link to the visualization hosted on gh-pages or other external sources.
-- Concise description and screenshot of your visualization.
-- Description of the technical achievements you attempted with this visualization.
-- Description of the design achievements you attempted with this visualization.
-
-4. Submit a pull request and name it as follow
-```
-a4-your Gh username-your first name-your lastname
-
-```
-
-Extra Links
----
-
-- https://observablehq.com/@philippkoytek/d3-part-3-brushing-and-linking
-- https://github.com/d3/d3-brush
-- https://observablehq.com/collection/@d3/d3-brush
-- https://observablehq.com/@d3/focus-context?collection=@d3/d3-brush
+## My Design Achievements:
+  - Visual Continuity: I used a consistent color palette, Steel Blue for default states and Orange for selected/highlighted states, to create a clear mental link between the two charts.
+  - Intuitive Feedback: By adjusting the opacity of the scatterplot dots, I managed any overplotting, which allows the user to see density in the sales data more clearly.
+  - Clean Layout: I utilized a standard margin convention (top, right, bottom, left) to ensure that axes and labels remain legible and do not bleed into the edges of the SVG containers.
