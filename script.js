@@ -15,15 +15,18 @@ let updateBar;
 // Loading data
 d3.csv("chocolate_sales.csv").then(data => {
 
-  // Convert numeric fields
+  // Clean and convert the numeric fields
   data.forEach(d => {
-    d.amount = +d.amount;
+    d.Amount = +d.Amount.replace(/[$,]/g, "");
     d["Boxes Shipped"] = +d["Boxes Shipped"];
   });
 
   createScatter(data);
   createBar(data);
 
+}).catch(err => {
+  // This will help you see if the file fails to load
+  console.error("Error loading the CSV file:", err);
 });
 
 
@@ -43,7 +46,7 @@ function createScatter(data){
     .range([margin.left, width - margin.right]);
 
   const y = d3.scaleLinear()
-    .domain(d3.extent(data, d => d.amount))
+    .domain(d3.extent(data, d => d.Amount))
     .range([height - margin.bottom, margin.top]);
 
   // Axes
@@ -62,7 +65,7 @@ function createScatter(data){
     .append("circle")
     .attr("class","dot")
     .attr("cx", d => x(d["Boxes Shipped"]))
-    .attr("cy", d => y(d.amount))
+    .attr("cy", d => y(d.Amount))
     .attr("r",4);
 
 
@@ -94,7 +97,7 @@ function createScatter(data){
     dots.classed("selected", d => {
 
       const cx = x(d["Boxes Shipped"]);
-      const cy = y(d.amount);
+      const cy = y(d.Amount);
 
       const isSelected =
         x0 <= cx && cx <= x1 &&
@@ -128,8 +131,8 @@ function createBar(data){
     // Aggregate sales by country
     const grouped = d3.rollups(
       filteredData,
-      v => d3.sum(v, d => d.amount),
-      d => d.country
+      v => d3.sum(v, d => d.Amount),
+      d => d.Country
     );
 
     // Scales
