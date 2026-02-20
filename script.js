@@ -13,7 +13,7 @@ let globalData;
 let updateBar;
 
 // Loading data
-d3.csv("Chocolate_Sales.csv").then(data => {
+d3.csv("chocolate_sales.csv").then(data => {
 
   // Convert numeric fields
   data.forEach(d => {
