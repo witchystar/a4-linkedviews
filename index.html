@@ -11,8 +11,26 @@
 
 <h1>Chocolate Sales Explorer</h1>
 
-<div id="scatter"></div>
-<div id="bar"></div>
+<div class="description-section">
+  <h2>Boxes Shipped vs. Sales Amount</h2>
+  <p>
+    This scatterplot maps <strong>Boxes Shipped</strong> against <strong>Amount</strong> to reveal the relationship 
+    between volume and revenue for individual sales entries. Use the interactive brush (click and drag) 
+    to select a specific subset of data points. Selected points will turn orange to provide 
+    immediate visual confirmation.
+  </p>
+  <div id="scatter"></div>
+
+  <hr>
+
+  <h2>Total Sales by Country</h2>
+  <p>
+    This bar chart aggregates the total sales <strong>Amount</strong> by <strong>Country</strong>. 
+    It is dynamically linked to the scatterplot above; as you adjust your brush selection, this chart 
+    instantly updates to reflect the totals for only the specific transactions you have highlighted.
+  </p>
+  <div id="bar"></div>
+</div>
 
 <script src="script.js"></script>
 
