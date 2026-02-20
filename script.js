@@ -43,7 +43,7 @@ function createScatter(data){
     .range([margin.left, width - margin.right]);
 
   const y = d3.scaleLinear()
-    .domain(d3.extent(data, d => d.Amount))
+    .domain(d3.extent(data, d => d.amount))
     .range([height - margin.bottom, margin.top]);
 
   // Axes
@@ -62,7 +62,7 @@ function createScatter(data){
     .append("circle")
     .attr("class","dot")
     .attr("cx", d => x(d["Boxes Shipped"]))
-    .attr("cy", d => y(d.Amount))
+    .attr("cy", d => y(d.amount))
     .attr("r",4);
 
 
