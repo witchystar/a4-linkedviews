@@ -8,11 +8,9 @@
 ## This is the link to my visualization: 
   - https://witchystar.github.io/a4-linkedviews/
 
-===
 ## My visualization provides a dual-view exploration of the Chocolate Sales csv. It contains 2 parts:
   1) Scatterplot: This chart maps "Boxes Shipped" against "Amount" to reveal the relationship between volume and revenue for individual sales entries. It incorporates an interactive brush, a click and drag tool, that allows you to select a specific subset of data points directly on the plot. When a region is "brushed," the selected points turn orange to provide immediate visual confirmation of your selection.
   2) Linked Bar Chart: This chart aggregates the total sales "Amount" by "Country". It is dynamically linked to the scatterplot; as you adjust your brush selection, the bar chart instantly updates to reflect the totals for only the specific transactions you have highlighted.
-===
 
 ## My Technical Achievements:
   - Interactive Linking & Brushing: I implemented a d3.brush() overlay that captures user input coordinates and filters the global dataset in real-time.
